@@ -14,7 +14,22 @@ Bu proje, Spring Boot uygulamasını WinSW (Windows Service Wrapper) kullanarak 
 
 #### 1. Projeyi Derleyin
 
-Öncelikle, Maven ile projeyi derleyip JAR dosyasını oluşturun:
+Spring Boot uygulamanızın ```pom.xml``` dosyasını aşağıdaki şekilde düzenleyin. Bu, uygulamanızı bir JAR dosyası olarak paketlemenizi sağlar.
+```xml
+<build>
+    <finalName>sp-winsw</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <executable>true</executable>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+Maven ile projeyi derleyip JAR dosyasını oluşturun:
 
 ```bash
 mvn clean install
